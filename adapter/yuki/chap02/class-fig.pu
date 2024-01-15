@@ -1,0 +1,31 @@
+@startuml
+
+class Main {
+    +main(args: String[]): void
+}
+
+abstract class Print {
+    +printWeak(): void
+    +printStrong(): void
+}
+
+class Banner {
+    -String string
+    +Banner(String string)
+    +showWithParen(): void
+    +showWithAster(): void
+}
+
+class PrintBanner {
+    -Banner banner
+    +PrintBanner(String string)
+    +printWeak(): void
+    +printStrong(): void
+}
+
+
+Main -down-> Print : uses >
+Print <|-right- PrintBanner :extends
+PrintBanner o-right-> Banner : has >
+
+@enduml
