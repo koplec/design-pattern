@@ -7,6 +7,7 @@ public class IDCard extends Product{
 
     // コンストラクタは、publicをつけないようにして、IDCardFactoryからしか呼び出せないようにする。
     // 直接IDCardを生成させない。
+    // packageないだけでアクセスさせて、外部からはnewできないようにすることは大切
     IDCard(String owner){
         System.out.println(owner + "のカードを作ります。");
         this.owner = owner;
