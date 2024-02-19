@@ -1,4 +1,4 @@
-//問題9-3
+//問題9-2
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
