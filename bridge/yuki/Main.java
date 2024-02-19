@@ -4,6 +4,9 @@ public class Main {
         Display d2 = new CountDisplay(new StringDisplayImpl("Hello, World"));
         CountDisplay d3 = new CountDisplay(new StringDisplayImpl("Hello, Univeres"));
         CountDisplay d4 = new CountDisplay(new FileDisplayImpl("abc.txt"));
+
+        IncreaseDisplay d5 = new IncreaseDisplay(new StringDisplayImpl("Hello, Universe"), 1);
+        IncreaseDisplay d6 = new IncreaseDisplay(new CharDisplayImpl('<', '%', '>'), 1);
         d1.display();
         d2.display();
         d3.display();
@@ -15,6 +18,11 @@ public class Main {
 
         d3.multiDisplay(5);
         d4.multiDisplay(10);
+
+        System.out.println("-----IncreaseDisplay-----");
+
+        d5.increaseDisplay(10);
+        d6.increaseDisplay(5);
 
 
     }
