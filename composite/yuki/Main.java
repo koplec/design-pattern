@@ -24,7 +24,8 @@ public class Main {
 
             hanako.add(new File("memo.tex", 789));
 
-            tomura.add(new File("game.doc", 111));
+            Entry gameDoc = new File("game.doc", 111);
+            tomura.add(gameDoc);
             tomura.add(new File("junk.mail", 222));
 
             usr.add(yuki);
@@ -32,6 +33,10 @@ public class Main {
             usr.add(tomura);
 
             root.printList();
+
+            //問題11-2
+            System.out.println("yuki's path: " + yuki.getFullPath());
+            System.out.println("game.doc's path: " + gameDoc.getFullPath());
 
         }catch (FileTreatmentException e){
             e.printStackTrace();
