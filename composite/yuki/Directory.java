@@ -32,6 +32,7 @@ public class Directory extends Entry{
 
     @Override
     public Entry add(Entry entry) throws FileTreatmentException {
+        entry.setParent(this);
         this.entries.add(entry);
         return this;
     }
