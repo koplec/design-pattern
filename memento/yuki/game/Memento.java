@@ -3,6 +3,7 @@ package game;
 import java.util.ArrayList;
 import java.util.List;
 
+// 主人公の状態を表現する
 public class Memento {
     //gameパッケージの外からはMementoの内部を変更できないようにする
     int money;
@@ -18,13 +19,14 @@ public class Memento {
     // wide interface
     // 広いインターフェース
     // このクラスの外部からも、このクラスの内部の状態を変更できるようにする
-    // Originatorからしか使えないようにする
+    // Originatorからしか、すなわちpackage内部からしか使えないようにする
     Memento(int money) {
         this.money = money;
         this.fruits = new ArrayList<>();
     }
 
     // wide interface
+    // game package内部からしか使えないようにする
     void addFruit(String fruit) {
         fruits.add(fruit);
     }

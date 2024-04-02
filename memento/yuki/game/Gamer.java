@@ -10,6 +10,7 @@ public class Gamer {
     private List<String> fruits = new ArrayList<>();
     private Random random = new Random();
     
+    //クラスフィールド
     private static String[] fruitsname = {
         "リンゴ", "ぶどう", "バナナ", "みかん",
     };
@@ -22,6 +23,7 @@ public class Gamer {
         return money;
     }
 
+    // 主人公が破産しない限り、お金をかけてゲームを行う
     public void bet() {
         int dice = random.nextInt(6) + 1;
         if (dice == 1) {
@@ -54,7 +56,10 @@ public class Gamer {
         // fruitsの要素をコピーして、Mementoを作成する
         // コンストラクタで渡したい気もするけど。。。
         for (String f : fruits) {
-            m.addFruit(f);
+            // フルーツはおいしいものだけ保存する
+            if(f.startsWith("おいしい")){
+                m.addFruit(f);
+            }
         }
         return m;
     }
@@ -62,7 +67,6 @@ public class Gamer {
     // 以前のMememtoを渡されて、状態を戻す
     public void restoreMemento(Memento memento) {
         this.money = memento.money; //getMoney()は使わないのは、なぜ？
-
         this.fruits = memento.getFruits();
     }
     public String toString() {
