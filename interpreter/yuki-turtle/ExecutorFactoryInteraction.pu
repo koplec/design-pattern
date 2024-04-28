@@ -1,0 +1,28 @@
+@startuml
+
+class Main {
+  -canvas: TurtleCanvas
+  -facade: InterpreterFacade
+  +Main(title: String)
+}
+
+class TurtleCanvas {
+  +TurtleCanvas(width: int, height: int)
+  +setExecutor(executor: Executor)
+}
+
+class InterpreterFacade {
+  -factory: ExecutorFactory
+  +InterpreterFacade(factory: ExecutorFactory)
+}
+
+interface ExecutorFactory {
+}
+
+Main --> "1" TurtleCanvas: has
+Main --> "1" InterpreterFacade: has
+InterpreterFacade --> "1" ExecutorFactory: has
+TurtleCanvas ..|> ExecutorFactory: implements
+InterpreterFacade --> TurtleCanvas: sets as ExecutorFactory
+
+@enduml

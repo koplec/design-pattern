@@ -1,0 +1,39 @@
+@startuml クラス図
+
+class Main {
+  -canvas: TurtleCanvas
+  -facade: InterpreterFacade
+  -programTextField: TextField
+  +Main(title: String)
+  +actionPerformed(e: ActionEvent)
+  -parseAndExecute()
+}
+
+class TurtleCanvas {
+  +TurtleCanvas(width: int, height: int)
+  +setExecutor(executor: Executor)
+  +initialize()
+  +paint(g: Graphics)
+  +createExecutor(name: String)
+}
+
+class InterpreterFacade {
+  +InterpreterFacade(factory: ExecutorFactory)
+  +parse(text: String)
+  +execute()
+}
+
+Main --> "1" TurtleCanvas: has
+Main --> "1" InterpreterFacade: has
+Main --> "1" TextField: has
+Main ..> ActionListener: implements
+TurtleCanvas ..> Canvas: extends
+TurtleCanvas --> "1" ExecutorFactory: uses
+TurtleCanvas --> "1" Point: has
+TurtleCanvas --> "1" Executor: has
+InterpreterFacade --> "1" Executor: uses
+InterpreterFacade --> "1" ExecutorFactory: has
+InterpreterFacade --> "1" Context: has
+InterpreterFacade --> "1" Node: has
+
+@enduml
